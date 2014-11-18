@@ -209,6 +209,10 @@ class Splash(object):
     def status_code(self):
         return self.tab.last_http_status()
 
+    @command()
+    def log(self, message):
+        self.tab.logger.log('[lua log] %s' % message, min_level=1)
+
     def get_real_exception(self):
         if self._exceptions:
             return self._exceptions[-1]
